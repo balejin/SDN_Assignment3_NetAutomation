@@ -13,10 +13,3 @@
       ios_config:
         lines:
           - banner motd ^ This is {{ inventory_hostname }}! ^
-    
-    - name: Backup Configurations
-      ios_config:
-        backup: yes
-        backup_options:
-          filename: "running-config-{{ inventory_hostname }}"
-          dir_path: "ansible/backups"
