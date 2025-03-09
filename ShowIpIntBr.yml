@@ -1,4 +1,7 @@
 ---
+collections:
+  - name: cisco.ios
+
   - name: Initial Playbook
     hosts: all
     gather_facts: no
