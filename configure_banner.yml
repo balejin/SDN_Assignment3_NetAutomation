@@ -1,0 +1,22 @@
+- name: SDN Assignment Three
+  hosts: routers
+  gather_facts: false
+  
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_network_os: cisco.ios.ios
+    ansible_become: yes
+    ansible_become_method: enable
+  
+  tasks:
+    - name: Change Login Banner
+      ios_config:
+        lines:
+          - banner motd ^ This is {{ inventory_hostname }}! ^
+    
+    - name: Backup Configurations
+      ios_config:
+        backup: yes
+        backup_options:
+          filename: "running-config-{{ inventory_hostname }}"
+          dir_path: "ansible/backups"
