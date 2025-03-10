@@ -1,5 +1,5 @@
 - name: SDN Assignment Three
-  hosts: routers
+  hosts: all
   gather_facts: false
   
   vars:
